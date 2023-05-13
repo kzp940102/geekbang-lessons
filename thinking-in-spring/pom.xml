@@ -8,9 +8,9 @@
     <artifactId>thinking-in-spring</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <!--<modules>
+    <modules>
         <module>ioc-container-overview</module>
-    </modules>-->
+    </modules>
 
     <properties>
         <spring.version>5.2.2.RELEASE</spring.version>
