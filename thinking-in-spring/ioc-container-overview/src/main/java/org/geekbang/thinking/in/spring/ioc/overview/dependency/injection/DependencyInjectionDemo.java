@@ -40,4 +40,16 @@ public class DependencyInjectionDemo {
         Environment environment = beanFactory.getBean(Environment.class);
         System.out.println("获取Environment 类型的Bean：" + environment);
     }
+
+    private static void whoIsIoCContainer(UserRepository userRepository,ApplicationContext applicationContext){
+
+        //ConfigurableApplicationContext <- applicationContext <- BeanFactory
+
+        //ConfigurableApplicationContext#getBeanFactory()
+        //这个表达式为什么不会成立
+        System.out.println(userRepository.getBeanFactory() == applicationContext);
+
+        //ApplicationContext is BeanFactory
+
+    }
 }
