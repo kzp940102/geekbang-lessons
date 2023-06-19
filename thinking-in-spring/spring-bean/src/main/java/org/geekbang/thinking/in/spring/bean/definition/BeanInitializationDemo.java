@@ -5,6 +5,7 @@ import org.geekbang.thinking.in.spring.bean.factory.UserFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 /**
  * Bean 初始化 Demo
@@ -21,13 +22,16 @@ public class BeanInitializationDemo {
         applicationContext.register(BeanInitializationDemo.class);
         //启动Spring 应用上下文
         applicationContext.refresh();
+        System.out.println("Spring 应用上下文已启动...");
         //依赖查找 UserFactory
         UserFactory userFactory = applicationContext.getBean(UserFactory.class);
+        System.out.println(userFactory);
         //关闭Spring 应用上下文
         applicationContext.close();
     }
 
     @Bean(initMethod = "initUserFactory")
+    @Lazy(value = false) //true表示延迟加载
     public UserFactory userFactory(){
         return new DefaultUserFactory();
     }
